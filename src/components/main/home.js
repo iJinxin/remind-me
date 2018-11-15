@@ -1,8 +1,18 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import request from '../../api/request';
+import API_URL from '../../api/url'
 
-export default class Me extends React.Component {
+export default class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+        console.log('start');
+        request.get(API_URL.example).then((res) => {
+            console.log(res);
+        })
+    }
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

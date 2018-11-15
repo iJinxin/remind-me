@@ -13,9 +13,9 @@ export default createBottomTabNavigator({
     Home: {
         screen: HomeScreen,
         navigationOptions: {
-            tabBarLabel: '主页1',
+            tabBarLabel: '主页',
             showLabel: false,
-            tabBarIcon: ({tintColor, focused }) => (
+            tabBarIcon: ({focused, horizontal, tintColor}) => (
                 <Entypo name={'home'} size={20} style={{color: tintColor}}/>
             )
         }
