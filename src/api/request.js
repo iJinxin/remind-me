@@ -8,20 +8,23 @@ class Request {
             body = body && JSON.stringify(body);
         }
         let wholeUrl = this.makeUrl(url, params);
-        return fetch(url, {
+        return fetch(wholeUrl, {
             method: method || 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: body,
-            mode: 'cors'
         }).then((res) => {
             if (res.status === 200) {
-                return res;
+                return res.json();
             } else {
+                // console.log('error');
                 return Promise.reject('error!!!');
             }
+        }).catch((res) => {
+            // console.log(res);
+            return Promise.reject(res);
         });
     }
 
@@ -36,7 +39,9 @@ class Request {
                 urlParams += i + '=' + params[i] + '&'
             }
         }
-        apiUrl += urlParams.substring(0, urlParams.length - 1);
+        if (urlParams.length) {
+            apiUrl += urlParams.substring(0, urlParams.length - 1);
+        }
         return API_HOST + apiUrl;
     }
 
