@@ -6,9 +6,16 @@ import Main from './components/main';
 // Main, Detail, Search
 // Detail, Search todo
 const RootStack = createStackNavigator({
-    Main: {screen: Main}
+    Main: {
+        screen: Main,
+        navigationOptions: {
+            title: 'home'
+        },
+        title: '123'
+    }
 }, {
-    initialRouteName: 'Main'
+    initialRouteName: 'Main',
+    headerMode: 'screen'
 });
 
 export default class App extends Component{
