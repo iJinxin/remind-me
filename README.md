@@ -2,7 +2,8 @@
 
 ## 参考资料
 ### demo
-https://github.com/alphasp/pxview
+- https://github.com/lipeiwei-szu/ReactNativeOne
+- https://github.com/alphasp/pxview
 ### redux
 - https://www.redux.org.cn/docs/basics/UsageWithReact.html
 - https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
