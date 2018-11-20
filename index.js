@@ -1,17 +1,22 @@
 /** @format */
-import { Component } from 'react';
-import {AppRegistry} from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
-import {name as appName} from './app.json';
 
-import App from './src'
+import { store } from './src/common/store/configureStore';
+// import { LocalizationProvider } from './src/common/localization/LocalizationProvider';
+
+
+import App from './src/App';
 
 class Root extends Component {
-    render() {
-        <Provider store={store}>
-
-        </Provider>
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  }
 }
 
-AppRegistry.registerComponent(appName, () => Init);
+AppRegistry.registerComponent('remindme', () => Root);
