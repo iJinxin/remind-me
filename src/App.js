@@ -1,8 +1,11 @@
+/**
+ * app容器
+ * 初始化navigator stack
+ */
 import React, { Component } from 'react';
 import {
-  Text,
   StyleSheet,
-  ScrollView,
+  StatusBar,
   View,
   BackAndroid,
   Platform
@@ -23,9 +26,7 @@ const styles = StyleSheet.create({
 class App extends Component {
   constructor(props) {
     super(props);
-    this.appNavigator = createAppNavigator({
-      initialRouteName,
-    });
+    this.appNavigator = createAppNavigator();
   }
 
   componentWillMount() {
@@ -41,16 +42,14 @@ class App extends Component {
 
   render() {
     const Navigator = this.appNavigator;
-    const renderComponent = (
-      <Navigator
-        screenProps={{}}
-      />
-    );
     return (
-      <ScrollView style={styles.container}>
-        <Text>this is home page</Text>
-        {renderComponent}
-      </ScrollView>
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor="black"
+          barStyle="default"
+        />
+        <Navigator />
+      </View>
     );
   }
 }

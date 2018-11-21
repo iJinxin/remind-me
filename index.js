@@ -1,4 +1,7 @@
-/** @format */
+/**
+ * 程序入口
+ * 初始化应用，启动redux
+ */
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { createStore, applyMiddleware } from 'redux';

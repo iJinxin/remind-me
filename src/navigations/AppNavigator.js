@@ -8,16 +8,20 @@ import { createStackNavigator } from 'react-navigation';
 import { STACK } from '../common/constants';
 import createHomeTabNavigator from './HomeTabNavigator';
 
-const createAppNavigator = ({ initialRouteName }) => {
+const stackConfig = {
+  headerMode: 'screen',
+};
+const createAppNavigator = () => {
   const AppNavigator = createStackNavigator(
     {
       [STACK.Main]: {
-        screen: createHomeTabNavigator({ initialRouteName }),
+        screen: createHomeTabNavigator(),
         navigationOptions: {
           header: null
         }
       }
-    }
+    },
+    stackConfig
   );
   return AppNavigator;
 };

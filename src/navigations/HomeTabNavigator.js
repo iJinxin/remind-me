@@ -2,36 +2,41 @@
 import React from 'react';
 // import { Platform } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
+import Entypo from 'react-native-vector-icons/Entypo';
+import Malteriallcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
-import Home from '../screens/home/home';
+import Home from '../screens/home/Home';
 import Me from '../components/main/me';
 import { SCREENS } from '../common/constants';
 
 
-const createHomeTabNavigator = ({ initialRouteName }) => createBottomTabNavigator(
+const createHomeTabNavigator = () => createBottomTabNavigator(
   {
     [SCREENS.Home]: {
       screen: Home,
-      navigationOptions: ({ screenProps: { i18n } }) => ({
-        tabBarLabel: '主页'
+      navigationOptions: () => ({
+        tabBarLabel: '主页',
+        tabBarIcon: ({ tintColor }) => (
+          <Entypo name="home" size={20} style={{ color: tintColor }} />
+        )
       })
     },
     [SCREENS.Me]: {
       screen: Me,
       navigationOptions: {
-        tabBarLabel: '我'
+        tabBarLabel: '我',
+        tabBarIcon: ({ tintColor }) => (
+          <Feather name="user" size={20} color={tintColor} />
+        )
       }
     }
   },
   {
-    initialRouteName: `${initialRouteName}`,
-    headerMode: 'none',
-    lazy: true,
-    swipeEnabled: false,
-    animationEnabled: false,
+    initialRouteName: SCREENS.Home,
     tabBarOptions: {
-      showIcon: true,
-      showLabel: true,
+      activeTintColor: '#0084ff',
+      inactiveTintColor: '#8590a6'
     },
   }
 );
