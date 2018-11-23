@@ -4,8 +4,11 @@
 import React from 'react';
 import {
   View,
+  Text,
+  StyleSheet
 } from 'react-native';
 import HeadNavigator from '../../navigations/HeadNavigator';
+import ActionButtons from '../../components/action-button/ActionButton';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -16,11 +19,21 @@ export default class Home extends React.Component {
     const statusBar = {
       backgroundColor: '#123',
     };
-    // const headNavigator = <HeadNavigator title="Home" hide={false} statusBar={statusBar} />;
+    const headNavigator = <HeadNavigator title="Home" hide={false} statusBar={statusBar} />;
+    const actionButtons = <ActionButtons style={styles.test} />;
     return (
-      <View>
-        <HeadNavigator title="Home" hide={false} statusBar={statusBar} />
+      <View style={styles.container}>
+        {headNavigator}
+        {actionButtons}
       </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  test: {
+    flex: 1,
+  }
+});
