@@ -13,3 +13,6 @@
 ### ReactNativeLocation(支持多语言)
 - https://github.com/stefalda/ReactNativeLocalization
 - https://medium.com/@danielsternlicht/adding-localization-i18n-g11n-to-a-react-native-project-with-rtl-support-223f39a8e6f2
+
+### react-native-action-button悬浮按钮
+https://github.com/mastermoo/react-native-action-button

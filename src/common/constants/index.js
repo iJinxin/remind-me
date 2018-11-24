@@ -4,5 +4,7 @@ export const STACK = {
 };
 
 export const SCREENS = {
-  Home: 'Home'
+  Home: 'Home',
+  Calendar: 'Calendar',
+  Me: 'Me'
 };

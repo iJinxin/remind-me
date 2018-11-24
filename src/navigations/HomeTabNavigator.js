@@ -3,10 +3,10 @@ import React from 'react';
 // import { Platform } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import Entypo from 'react-native-vector-icons/Entypo';
-import Malteriallcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 
 import Home from '../screens/home/Home';
+import Calendar from '../screens/canlendar/Calendar';
 import Me from '../components/main/me';
 import { SCREENS } from '../common/constants';
 
@@ -17,6 +17,15 @@ const createHomeTabNavigator = () => createBottomTabNavigator(
       screen: Home,
       navigationOptions: () => ({
         tabBarLabel: '主页',
+        tabBarIcon: ({ tintColor }) => (
+          <Entypo name="home" size={20} style={{ color: tintColor }} />
+        )
+      })
+    },
+    [SCREENS.Calendar]: {
+      screen: Calendar,
+      navigationOptions: () => ({
+        tabBarLabel: '日历',
         tabBarIcon: ({ tintColor }) => (
           <Entypo name="home" size={20} style={{ color: tintColor }} />
         )
