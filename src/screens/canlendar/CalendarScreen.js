@@ -1,16 +1,13 @@
-/**
- * home page container
- */
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet
+  StyleSheet,
+  View
 } from 'react-native';
 import HeadNavigator from '../../navigations/HeadNavigator';
 import ActionButtons from '../../components/action-button/ActionButton';
+import Calendars from '../../components/calendar/Calendars';
 
-export default class Home extends React.Component {
+export default class CalendarScreen extends Component {
   constructor(props) {
     super(props);
   }
@@ -19,16 +16,19 @@ export default class Home extends React.Component {
     const statusBar = {
       backgroundColor: '#123',
     };
-    const headNavigator = <HeadNavigator title="Home" hide={false} statusBar={statusBar} />;
+    const headNavigator = <HeadNavigator title="calendar" hide={false} statusBar={statusBar} />;
     const actionButtons = <ActionButtons style={styles.actionButtonIcon} />;
+    const calendars = <Calendars />;
     return (
       <View style={styles.container}>
         {headNavigator}
+        {calendars}
         {actionButtons}
       </View>
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1

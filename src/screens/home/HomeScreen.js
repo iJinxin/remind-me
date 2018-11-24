@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+/**
+ * home page container
+ */
+import React from 'react';
 import {
-  StyleSheet,
-  View
+  View,
+  Text,
+  StyleSheet
 } from 'react-native';
 import HeadNavigator from '../../navigations/HeadNavigator';
 import ActionButtons from '../../components/action-button/ActionButton';
 
-export default class Calendar extends Component {
+export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -25,7 +29,6 @@ export default class Calendar extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1

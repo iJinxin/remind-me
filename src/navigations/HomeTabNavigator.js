@@ -5,16 +5,16 @@ import { createBottomTabNavigator } from 'react-navigation';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 
-import Home from '../screens/home/Home';
-import Calendar from '../screens/canlendar/Calendar';
-import Me from '../components/main/me';
+import HomeScreen from '../screens/home/HomeScreen';
+import CalendarScreen from '../screens/canlendar/CalendarScreen';
+import Me from '../screens/me/MeScreen';
 import { SCREENS } from '../common/constants';
 
 
 const createHomeTabNavigator = () => createBottomTabNavigator(
   {
     [SCREENS.Home]: {
-      screen: Home,
+      screen: HomeScreen,
       navigationOptions: () => ({
         tabBarLabel: '主页',
         tabBarIcon: ({ tintColor }) => (
@@ -23,7 +23,7 @@ const createHomeTabNavigator = () => createBottomTabNavigator(
       })
     },
     [SCREENS.Calendar]: {
-      screen: Calendar,
+      screen: CalendarScreen,
       navigationOptions: () => ({
         tabBarLabel: '日历',
         tabBarIcon: ({ tintColor }) => (
