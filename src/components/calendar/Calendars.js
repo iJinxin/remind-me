@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  View
+  View,
+  Text
 } from 'react-native';
 import {
   Calendar,
@@ -14,38 +15,69 @@ export default class Calendars extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: Date()
+      items: {}
     };
   }
 
+  loadItems(day) {
+    setTimeout(() => {
+      for (let i = -15; i < 85; i++) {
+        const time = day.timestamp + i * 24 * 60 * 60 * 1000;
+        const strTime = this.timeToString(time);
+        if (!this.state.items[strTime]) {
+          this.state.items[strTime] = [];
+          const numItems = Math.floor(Math.random() * 5);
+          for (let j = 0; j < numItems; j++) {
+            this.state.items[strTime].push({
+              name: `Item for ${strTime}`,
+              height: Math.max(50, Math.floor(Math.random() * 150))
+            });
+          }
+        }
+      }
+      // console.log(this.state.items);
+      const newItems = {};
+      Object.keys(this.state.items).forEach((key) => { newItems[key] = this.state.items[key]; });
+      this.setState({
+        items: newItems
+      });
+    }, 1000);
+    // console.log(`Load Items for ${day.year}-${day.month}`);
+  }
+
+  renderItem(item) {
+    return (
+      <View style={[styles.item, { height: item.height }]}><Text>{item.name}</Text></View>
+    );
+  }
+
+  renderEmptyDate() {
+    return (
+      <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
+    );
+  }
+
+  rowHasChanged(r1, r2) {
+    return r1.name !== r2.name;
+  }
+
+  timeToString(time) {
+    const date = new Date(time);
+    return date.toISOString().split('T')[0];
+  }
+
+
   render() {
     const calendars = (
-      <CalendarList
-        current={this.state.current}
-      // Handler which gets executed on day press. Default = undefined
-        onDayPress={(day) => { console.log('selected day', day); }}
-      // Handler which gets executed on day long press. Default = undefined
-        onDayLongPress={(day) => { console.log('selected day', day); }}
-      // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-        monthFormat="yyyy MM"
-      // Handler which gets executed when visible month changes in calendar. Default = undefined
-        onMonthChange={(month) => { console.log('month changed', month); }}
-      // Hide month navigation arrows. Default = false
-      // Do not show days of other months in month page. Default = false
-      // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
-      // day from another month that is visible in calendar page. Default = false
-
-      // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
-        firstDay={1}
-      // Hide day names. Default = false
-        hideDayNames
-      // Show week numbers to the left. Default = false
-      // Handler which gets executed when press arrow icon left. It receive a callback can go back month
-        onPressArrowLeft={substractMonth => substractMonth()}
-      // Handler which gets executed when press arrow icon left. It receive a callback can go next month
-        onPressArrowRight={addMonth => addMonth()}
-        horizontal={true}
-        pagingEnabled={true}
+      <Agenda
+        items={
+          {
+            '2018-05-22': [{ text: 'item 1 - any js object' }],
+            '2018-05-23': [{ text: 'item 2 - any js object' }],
+            '2018-05-24': [],
+            '2018-05-25': [{ text: 'item 3 - any js object' }, { text: 'any js object' }],
+          }
+        }
       />
     );
 
@@ -56,3 +88,19 @@ export default class Calendars extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: 'white',
+    flex: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginRight: 10,
+    marginTop: 17
+  },
+  emptyDate: {
+    height: 15,
+    flex: 1,
+    paddingTop: 30
+  }
+});
