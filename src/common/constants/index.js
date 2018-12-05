@@ -6,5 +6,7 @@ export const STACK = {
 export const SCREENS = {
   Home: 'Home',
   Calendar: 'Calendar',
-  Me: 'Me'
+  Me: 'Me',
+  Remind: 'Remind',
+  Record: 'Record'
 };

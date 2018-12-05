@@ -6,7 +6,7 @@ import {
 import HeadNavigator from '../../navigations/HeadNavigator';
 import ActionButtons from '../../components/action-button/ActionButton';
 
-export default class RemindMeScreen extends Component {
+export default class RecordScreen extends Component {
   constructor(props) {
     super(props);
   }
@@ -25,6 +25,7 @@ export default class RemindMeScreen extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1

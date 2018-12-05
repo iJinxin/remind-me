@@ -8,15 +8,15 @@ import Entypo from 'react-native-vector-icons/Entypo';
 // import HomeScreen from '../screens/home/HomeScreen';
 // import CalendarScreen from '../screens/canlendar/CalendarScreen';
 // import Me from '../screens/me/MeScreen';
-import RemindMeScreen from '../screens/remind-me/RemindMeScreen';
-import NoteScreen from '../screens/note/NoteScreen';
+import RemindScreen from '../screens/remind/RemindScreen';
+import RecordScreen from '../screens/record/RecordScreen';
 import { SCREENS } from '../common/constants';
 
 
 const createHomeTabNavigator = () => createBottomTabNavigator(
   {
-    [SCREENS.Home]: {
-      screen: RemindMeScreen,
+    [SCREENS.Remind]: {
+      screen: RemindScreen,
       navigationOptions: () => ({
         tabBarLabel: '提醒',
         tabBarIcon: ({ tintColor }) => (
@@ -24,10 +24,10 @@ const createHomeTabNavigator = () => createBottomTabNavigator(
         )
       })
     },
-    [SCREENS.Calendar]: {
-      screen: NoteScreen,
+    [SCREENS.Record]: {
+      screen: RecordScreen,
       navigationOptions: () => ({
-        tabBarLabel: '日历',
+        tabBarLabel: '记录',
         tabBarIcon: ({ tintColor }) => (
           <Entypo name="home" size={20} style={{ color: tintColor }} />
         )
