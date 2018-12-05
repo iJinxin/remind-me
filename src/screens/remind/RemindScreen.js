@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import HeadNavigator from '../../navigations/HeadNavigator';
 import ActionButtons from '../../components/action-button/ActionButton';
+import RemindList from '../../components/RemindList';
 
 export default class RemindScreen extends Component {
   constructor(props) {
@@ -15,11 +16,13 @@ export default class RemindScreen extends Component {
     const statusBar = {
       backgroundColor: '#123'
     };
-    const headNavigator = <HeadNavigator title="remind-me" hide={false} statusBar={statusBar} />;
+    const headNavigator = <HeadNavigator title="提醒" hide={false} statusBar={statusBar} />;
+    const remindList = <RemindList />;
     const actionButtons = <ActionButtons style={styles.actionButtonIcon} />;
     return (
       <View style={styles.container}>
         {headNavigator}
+        {remindList}
         {actionButtons}
       </View>
     );

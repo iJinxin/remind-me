@@ -35,7 +35,7 @@ const createHomeTabNavigator = () => createBottomTabNavigator(
     }
   },
   {
-    initialRouteName: SCREENS.Home,
+    initialRouteName: SCREENS.Remind,
     tabBarOptions: {
       activeTintColor: '#0084ff',
       inactiveTintColor: '#8590a6'

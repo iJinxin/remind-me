@@ -7,10 +7,6 @@ import HeadNavigator from '../../navigations/HeadNavigator';
 import ActionButtons from '../../components/action-button/ActionButton';
 
 export default class RecordScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const statusBar = {
       backgroundColor: '#123'
