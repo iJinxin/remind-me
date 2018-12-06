@@ -4,7 +4,7 @@ import {
   View
 } from 'react-native';
 import HeadNavigator from '../../navigations/HeadNavigator';
-import ActionButtons from '../../components/action-button/ActionButton';
+import ActionButtons from '../../components/button/ActionButton';
 
 export default class RecordScreen extends Component {
   render() {

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 // import Data from '../api/data';
 import RemindItem from './RemindItem';
-import Data from '../api/data';
+import Data from '../../api/data';
 
 export default class RemindList extends Component {
   constructor(props) {

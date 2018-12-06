@@ -7,6 +7,8 @@ import { createStackNavigator } from 'react-navigation';
 // import config from '../common/config';
 import { STACK } from '../common/constants';
 import createHomeTabNavigator from './HomeTabNavigator';
+import RemindDetailScreen from '../screens/remind/RemindDetailScreen';
+// import RecordDetailScreen from '../screens/record/RecordDetailScreen';
 
 const stackConfig = {
   headerMode: 'screen',
@@ -19,7 +21,19 @@ const createAppNavigator = () => {
         navigationOptions: {
           header: null
         }
-      }
+      },
+      [STACK.RemindDetail]: {
+        screen: RemindDetailScreen,
+        navigationOptions: {
+          header: null
+        }
+      },
+      // [STACK.RecordDetail]: {
+      //   screen: RecordDetailScreen,
+      //   navigationOptions: {
+      //     header: null
+      //   }
+      // }
     },
     stackConfig
   );

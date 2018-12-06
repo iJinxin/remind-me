@@ -1,6 +1,8 @@
 // app navigator screens;
 export const STACK = {
-  Main: 'Main'
+  Main: 'Main',
+  RemindDetail: 'RemindDetail',
+  RecordDetail: 'RecordDetail'
 };
 
 export const SCREENS = {

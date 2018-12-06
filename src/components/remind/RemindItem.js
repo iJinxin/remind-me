@@ -10,24 +10,34 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  Alert,
+  TouchableOpacity
 } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-export default class RemindItem extends Component {
+class RemindItem extends Component {
+  goDetail() {
+    this.props.navigation.navigate('RemindDetail');
+  }
+
   render() {
     const {
       date,
-      content,
-      separators
+      content
     } = this.props;
     return (
-      <View style={styles.container}>
-        <Text style={styles.content}>{content}</Text>
-        <Text style={styles.date}>{date}</Text>
-      </View>
+      <TouchableOpacity onPress={() => { this.props.navigation.navigate('RemindDetail'); }}>
+        <View style={styles.container}>
+          <Text style={styles.content}>{content}</Text>
+          <Text style={styles.date}>{date}</Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
+
+export default withNavigation(RemindItem);
 
 const styles = StyleSheet.create({
   container: {

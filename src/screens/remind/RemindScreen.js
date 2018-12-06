@@ -4,8 +4,8 @@ import {
   View
 } from 'react-native';
 import HeadNavigator from '../../navigations/HeadNavigator';
-import ActionButtons from '../../components/action-button/ActionButton';
-import RemindList from '../../components/RemindList';
+import ActionButtons from '../../components/button/ActionButton';
+import RemindList from '../../components/remind/RemindList';
 
 export default class RemindScreen extends Component {
   constructor(props) {
