@@ -8,6 +8,7 @@
 import React, { Component } from 'react';
 import {
   View,
+  Text,
   StyleSheet,
   FlatList
 } from 'react-native';
@@ -15,28 +16,27 @@ import { getButtonElement } from '../button/Button';
 
 export default class ActionHeader extends Component {
   renderItem = ({ item }) => (
-    <View>{getButtonElement(item)}</View>
+    <View><Text>123</Text></View>
   );
 
   render() {
-    const leftActions = (
-      <FlatList
-        data={this.props.leftData}
-        horizontal
-        renderItem={this.renderItem}
-      />
-    );
-    const rightActions = (
-      <FlatList
-        data={this.props.rightData}
-        horizontal
-        renderItem={this.renderItem()}
-      />
-    );
+    // const leftActions = (
+    //   <FlatList
+    //     data={this.props.leftData}
+    //     horizontal
+    //     renderItem={this.renderItem}
+    //   />
+    // );
+    // const rightActions = (
+    //   <FlatList
+    //     data={this.props.rightData}
+    //     horizontal
+    //     renderItem={this.renderItem()}
+    //   />
+    // );
     return (
       <View style={styles.container}>
-        {leftActions}
-        {rightActions}
+        <Text>t111111111111111itle</Text>
       </View>
     );
   }

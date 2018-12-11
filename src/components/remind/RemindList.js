@@ -14,9 +14,7 @@ import Data from '../../api/data';
 export default class RemindList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   componentWillMount() {

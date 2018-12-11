@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {
-  View
+  View,
+  Text
 } from 'react-native';
 
 export default class RemindEditor extends Component {
   render() {
     return (
-      <View />
+      <View><Text>123</Text></View>
     );
   }
 }

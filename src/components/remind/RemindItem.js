@@ -17,17 +17,32 @@ import {
 import { withNavigation } from 'react-navigation';
 
 class RemindItem extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   goDetail() {
-    this.props.navigation.navigate('RemindDetail');
+    // const navigation = this.props.navigation;
+    Alert.alert(
+      'hello',
+      this.props,
+      [
+        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ]
+    );
+    // this.props.navigation.navigate('RemindDetail');
   }
 
   render() {
     const {
       date,
-      content
+      content,
+      navigation
     } = this.props;
     return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('RemindDetail'); }}>
+      <TouchableOpacity onPress={() => { navigation.navigate('RemindDetail'); }}>
         <View style={styles.container}>
           <Text style={styles.content}>{content}</Text>
           <Text style={styles.date}>{date}</Text>
