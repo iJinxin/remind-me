@@ -21,14 +21,14 @@ class NavBarButton extends Component {
       type === 'icon'
         ? (
           <TouchableOpacity style={style} onPress={handler}>
-            <View>
+            <View style={styles.test}>
               {icon}
             </View>
           </TouchableOpacity>
         )
         : (
           <TouchableOpacity style={style} onPress={handler}>
-            <Text>
+            <Text style={styles.test}>
               {text}
             </Text>
           </TouchableOpacity>
@@ -49,3 +49,11 @@ export const getButtonElement = (data = {}, style) => (
     )}
   </View>
 );
+
+const styles = StyleSheet.create({
+  test: {
+    height: 50,
+    justifyContent: 'center',
+    paddingRight: 5
+  }
+});

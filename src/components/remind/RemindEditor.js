@@ -7,7 +7,7 @@ import {
 export default class RemindEditor extends Component {
   render() {
     return (
-      <View><Text>123</Text></View>
+      <View><Text>remind editor</Text></View>
     );
   }
 }

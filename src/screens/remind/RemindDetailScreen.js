@@ -4,7 +4,6 @@ import {
 } from 'react-native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import HeadNavigator from '../../navigations/HeadNavigator';
 import ActionHeader from '../../components/header/ActionHeader';
 import RemindEditor from '../../components/remind/RemindEditor';
 
@@ -13,24 +12,20 @@ export default class RecordDetailScreen extends Component {
     const leftData = [
       {
         type: 'icon',
-        icon: <MaterialIcons name="arrow-back" />
+        icon: <MaterialIcons name="arrow-back" size={24} />
       }
     ];
     const rightData = [
       {
-        type: 'icon',
-        icon: <MaterialIcons name="delete" />
+        type: 'text',
+        text: '123456'
       },
       {
         type: 'icon',
-        icon: <MaterialIcons name="done" />
+        icon: <MaterialIcons name="done" size={20} />
       }
     ];
-    const statusBar = {
-      backgroundColor: '#123'
-    };
-    // const headNavigator = <HeadNavigator title="提醒" hide={false} statusBar={statusBar} />;
-    const actionHeader = <ActionHeader />;
+    const actionHeader = <ActionHeader leftData={leftData} rightData={rightData} />;
     const remindEditor = <RemindEditor />;
 
     return (

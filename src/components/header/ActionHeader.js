@@ -8,7 +8,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   FlatList
 } from 'react-native';
@@ -16,27 +15,34 @@ import { getButtonElement } from '../button/Button';
 
 export default class ActionHeader extends Component {
   renderItem = ({ item }) => (
-    <View><Text>123</Text></View>
+    <View>
+      {getButtonElement(item)}
+    </View>
   );
 
   render() {
-    // const leftActions = (
-    //   <FlatList
-    //     data={this.props.leftData}
-    //     horizontal
-    //     renderItem={this.renderItem}
-    //   />
-    // );
-    // const rightActions = (
-    //   <FlatList
-    //     data={this.props.rightData}
-    //     horizontal
-    //     renderItem={this.renderItem()}
-    //   />
-    // );
+    const leftActions = (
+      <View style={styles.leftAction}>
+        <FlatList
+          data={this.props.leftData}
+          horizontal
+          renderItem={this.renderItem}
+        />
+      </View>
+    );
+    const rightActions = (
+      <View style={styles.rightAction}>
+        <FlatList
+          data={this.props.rightData}
+          horizontal
+          renderItem={this.renderItem}
+        />
+      </View>
+    );
     return (
       <View style={styles.container}>
-        <Text>t111111111111111itle</Text>
+        {leftActions}
+        {rightActions}
       </View>
     );
   }
@@ -44,6 +50,15 @@ export default class ActionHeader extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    backgroundColor: '#cccccc',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  leftAction: {
+    paddingLeft: 15
+  },
+  rightAction: {
+    paddingRight: 10
   }
 });
